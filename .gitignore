@@ -1,0 +1,20 @@
+# macOS metadata
+.DS_Store
+._*
+.gitattributes
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Python virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Local agent logs & session databases
+logs/
+*.db
