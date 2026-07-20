@@ -1,45 +1,44 @@
 # Implementation Roadmap & Plan
 
-## Phase 1: Setup & Design Tokens (`001-setup-tokens`)
-- **Goal**: Initialize Next.js workspace and establish basic layout, css variables, and fonts.
+## Phase 1: Setup & Stitch Design Integration (`001-setup-design`)
+- **Goal**: Initialize the Next.js workspace and export the exact styling tokens from the completed Stitch project.
 - **Tasks**:
-  - [ ] Initialize Next.js in the current directory (`npx create-next-app@latest ./` with TypeScript, ESLint, App Router, src/ directory, and NO Tailwind).
-  - [ ] Create `DESIGN.md` in the workspace root mapping design assets.
-  - [ ] Create `src/app/globals.css` with CSS custom properties representing color tokens, reset, and base fonts.
-- **Verification**: Ensure Next.js builds successfully (`npm run build`) and renders a clean background with the correct fonts.
+  - [ ] Initialize Next.js in the current directory (`npx create-next-app@latest ./` with TypeScript, App Router, src/ directory, and NO Tailwind).
+  - [ ] Retrieve the completed design system token metadata (`designTheme` and `designMd`) from the Stitch project `projects/6624443985264640229` using Stitch MCP.
+  - [ ] Create `DESIGN.md` in the workspace root matching the retrieved design system guidelines.
+  - [ ] Setup `src/app/globals.css` with the exact Custom CSS variables representing the Cyber Lime primary, Stark White surface, 2.5px borders, and 4px/8px hard offset shadows.
+- **Verification**: Run `npm run dev` to verify the development environment compiles and base styling loads successfully.
 
-## Phase 2: Shell & Hero Page (`002-shell-hero`)
-- **Goal**: Build the global navigation header and the interactive landing hero block.
+## Phase 2: Navigation & Hero section (`002-shell-hero`)
+- **Goal**: Implement the global shell and hero section according to the Stitch design screens.
 - **Tasks**:
-  - [ ] Create `src/components/Navbar.tsx` (glassmorphic menu with responsive links).
-  - [ ] Create `src/components/Hero.tsx` (Outfitted heading, bold action buttons).
-  - [ ] Update `src/app/page.tsx` to mount the layout components.
-- **Verification**: Verify mobile navigation hamburger menu drawer toggles correctly and buttons show correct hover micro-animations.
+  - [ ] Build the layout shell and navigation header.
+  - [ ] Build the Hero section with bold Source Serif 4 headlines, Cyber Lime CTA buttons, and sharp 2.5px borders.
+- **Verification**: Verify buttons shrink their hard offsets on hover/active states as specified.
 
-## Phase 3: Project Portfolio Bento Grid (`003-portfolio-grid`)
-- **Goal**: Implement the projects showcase section.
+## Phase 3: Project Bento Grid (`003-portfolio-grid`)
+- **Goal**: Replicate the projects grid from the Stitch design.
 - **Tasks**:
-  - [ ] Create `src/components/BentoGrid.tsx` for visual arrangement.
-  - [ ] Create card component with tag pills and click-out links.
-  - [ ] Implement category selection state (All, Web, GenAI).
-- **Verification**: Confirm grid is responsive (collapsing on mobile) and filters projects accurately.
+  - [ ] Construct the 12-column grid layout, collapsing to a single column on mobile.
+  - [ ] Render the bento cards with white backgrounds, black 2.5px borders, and category tags.
+- **Verification**: Verify the grid matches the screen layout retrieved from Stitch.
 
-## Phase 4: Timeline & Skills Visualizer (`004-timeline-skills`)
-- **Goal**: Add experience timeline and visual skills tracker.
+## Phase 4: Experience Timeline & Skills (`004-timeline-skills`)
+- **Goal**: Implement experience narrative and skills display.
 - **Tasks**:
-  - [ ] Create `src/components/Timeline.tsx` (experience cards along a vertical axis).
-  - [ ] Create `src/components/SkillsGraph.tsx` (styled skill levels).
-- **Verification**: Ensure timeline items align correctly and skills graph displays accessible labels.
+  - [ ] Build the vertical experience timeline with square Cyber Lime indicators.
+  - [ ] Build the flat, segmented loading-bar style skills graph.
+- **Verification**: Ensure typography pairing (Source Serif 4 for headers, Geist for body, JetBrains Mono for tags) renders correctly.
 
 ## Phase 5: Contact Widget (`005-contact-form`)
-- **Goal**: Add user message contact portal.
+- **Goal**: Build the contact portal.
 - **Tasks**:
-  - [ ] Create `src/components/ContactForm.tsx` (validated email and text areas).
-- **Verification**: Test forms validation constraints and success message delivery.
+  - [ ] Set up the high-contrast Neo-Brutalist form elements.
+- **Verification**: Verify focus states highlight the borders with Cyber Lime/Electric Cyan.
 
-## Phase 6: SEO & Performance Auditing (`006-seo-audit`)
+## Phase 6: SEO & Auditing (`006-seo-audit`)
 - **Goal**: Finalize meta tags, titles, accessibility, and production deployment preparation.
 - **Tasks**:
   - [ ] Inject meta description, page title, favicon assets, and OG tags.
   - [ ] Audit contrast ratios, keyboard navigation (tabIndex), and aria-labels.
-- **Verification**: Run Lighthouse audits to confirm Core Web Vitals (LCP, INP) are optimized.
+- **Verification**: Verify Lighthouse scores for accessibility and performance.
