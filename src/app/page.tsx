@@ -189,10 +189,6 @@ export default function Home() {
     }));
   };
 
-  const handleResumeClick = () => {
-    alert("Resume download feature: PDF download triggered!");
-  };
-
   return (
     <div className="bg-surface text-on-surface font-body-md overflow-x-hidden">
       {/* Header */}
@@ -227,12 +223,13 @@ export default function Home() {
               Contact
             </a>
           </div>
-          <button
-            onClick={handleResumeClick}
-            className="neo-brutalist-border bg-primary-container text-white px-md py-sm font-label-caps hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 transition-transform btn-shift"
+          <a
+            href="/resume.pdf"
+            download="Hargurjeet_Singh_Resume.pdf"
+            className="neo-brutalist-border bg-primary-container text-white px-md py-sm font-label-caps hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 transition-transform btn-shift inline-block text-center"
           >
             RESUME.PDF
-          </button>
+          </a>
         </nav>
       </header>
 
@@ -580,7 +577,14 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:justify-between items-start mb-xs">
                 <div>
                   <h3 className="font-headline-md text-headline-md">M.S. Machine Learning &amp; AI</h3>
-                  <span className="font-label-caps text-label-caps text-primary">Liverpool John Moores University</span>
+                  <a
+                    href="https://www.ljmu.ac.uk/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-label-caps text-label-caps text-primary hover:underline block mt-xs"
+                  >
+                    Liverpool John Moores University
+                  </a>
                 </div>
                 <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1">2023 — 2025</span>
               </div>
@@ -589,7 +593,14 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:justify-between items-start mb-xs">
                 <div>
                   <h3 className="font-headline-md text-headline-md">Exec. PG in Data Science &amp; AI</h3>
-                  <span className="font-label-caps text-label-caps text-primary">IIIT Bangalore</span>
+                  <a
+                    href="https://www.iiitb.ac.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-label-caps text-label-caps text-primary hover:underline block mt-xs"
+                  >
+                    IIIT Bangalore
+                  </a>
                 </div>
                 <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1">2022 — 2023</span>
               </div>
@@ -598,7 +609,14 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:justify-between items-start mb-xs">
                 <div>
                   <h3 className="font-headline-md text-headline-md">B.E. Electronics &amp; Communication</h3>
-                  <span className="font-label-caps text-label-caps text-primary">New Horizon College of Engineering</span>
+                  <a
+                    href="https://newhorizonindia.edu/nhce/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-label-caps text-label-caps text-primary hover:underline block mt-xs"
+                  >
+                    New Horizon College of Engineering
+                  </a>
                 </div>
                 <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1">2006 — 2010</span>
               </div>
@@ -615,10 +633,20 @@ export default function Home() {
             H_SINGH_PORTFOLIO // BUILD_2025.02.RAG
           </div>
           <div className="flex gap-lg">
-            <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase" href="#">
+            <a
+              className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase"
+              href="https://github.com/hargurjeet"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
-            <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase" href="#">
+            <a
+              className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase"
+              href="https://www.linkedin.com/in/hargurjeet/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
             <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase" href="#">
