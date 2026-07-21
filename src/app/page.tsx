@@ -139,14 +139,82 @@ export default function Home() {
             <h3 className="font-label-caps text-label-caps text-on-surface mb-md flex items-center gap-xs">
               <span className="material-symbols-outlined">terminal</span> TECHNICAL_STACK
             </h3>
-            <div className="flex flex-wrap gap-sm">
-              {["Python", "PyTorch", "LangChain", "Transformers", "Docker", "PostgreSQL", "FastAPI", "Kubernetes", "CUDA"].map((tech) => (
-                <span key={tech} className="neo-brutalist-border bg-surface-container-low px-sm py-xs font-code-sm text-code-sm">
-                  {tech}
-                </span>
-              ))}
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+              {/* Generative AI */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>Generative AI</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["RAG Patterns", "Agents", "Fine-tuning", "Guardrails", "PII Filtering", "Vector DB", "Observability", "MCP"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* LLM Frameworks & APIs */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>Frameworks &amp; APIs</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["LangChain", "LangGraph", "CrewAI", "OpenAI API", "Anthropic API", "Gemini API", "Langfuse", "Ragas"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* MLOps */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>MLOps &amp; Infra</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["Docker", "FastAPI", "MLflow", "CI/CD", "GitHub Actions", "GitLab", "AWS SageMaker", "Feature Store"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Cloud (AWS) */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>Cloud (AWS)</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["Bedrock", "Textract", "OpenSearch", "Lambda", "Step Functions", "CloudWatch", "SageMaker"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Core ML & Data */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>Core ML &amp; Data</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["XGBoost", "Random Forests", "PyTorch", "TensorFlow", "scikit-learn", "BERT", "PySpark", "SQL"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Agentic Coding Tools */}
+              <div>
+                <h4 className="font-label-caps text-label-caps text-primary uppercase mb-xs" style={{ fontSize: '11px' }}>Agentic Tools</h4>
+                <div className="flex flex-wrap gap-xs">
+                  {["Cursor", "Claude Code", "Kiro", "Amazon Q", "VS Code", "GitHub Copilot"].map((tech) => (
+                    <span key={tech} className="neo-brutalist-border bg-surface-container-low px-2 py-0.5 font-code-sm" style={{ fontSize: '11px', lineHeight: '14px' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="mt-lg border-t border-on-surface pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
+
+            <div className="border-t border-on-surface pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
               <div>
                 <h4 className="font-label-caps text-label-caps text-primary uppercase">Specializations</h4>
                 <p className="font-body-md text-body-md mt-xs">
