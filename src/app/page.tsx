@@ -77,7 +77,7 @@ const projects: Project[] = [
     title: "Generic Database MCP Server",
     category: "MCP & Developer Tools",
     year: "2024",
-    icon: "database",
+    image: "/images/project_db_mcp.png",
     description: "Pass any DuckDB file and get a full data-quality report + LLM-written root cause analysis in seconds — no config, no hardcoded schema.",
     bullets: [
       "**Zero hardcoding** — connects to any DuckDB file and auto-discovers every table and column at runtime.",
@@ -95,7 +95,7 @@ const projects: Project[] = [
     title: "AI-Powered Resume Parser",
     category: "AI Applications",
     year: "2024",
-    icon: "description",
+    image: "/images/project_resume_parser.png",
     description: "Structured output guaranteed at the schema level — retry logic and graceful failure handle the edge cases that plain prompting misses.",
     bullets: [
       "**PDF -> structured JSON pipeline**: pdfplumber extracts text -> Llama 3.3 70B parses via Fireworks AI.",
@@ -113,7 +113,7 @@ const projects: Project[] = [
     title: "Production-Grade RAG Evaluation Pipeline",
     category: "RAG & LLMOps",
     year: "2023",
-    icon: "analytics",
+    image: "/images/project_rag_eval.png",
     description: "Quality regressions caught at PR stage, not in production. Stack: LangChain/LangGraph, Chroma vector store, Cohere reranker — every retrieval step traceable.",
     bullets: [
       "**Hybrid retrieval**: BM25 sparse + contextual dense search — fed through a Cohere reranker.",
@@ -134,6 +134,9 @@ export default function Home() {
 
   // State for collapsible experience block
   const [expandedExperience, setExpandedExperience] = useState(false);
+
+  // State for showing all 6 projects or only the first 3
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const toggleProject = (id: string) => {
     setExpandedProjects((prev) => ({
@@ -349,11 +352,13 @@ export default function Home() {
             <h2 className="font-display-lg text-display-lg-mobile md:text-headline-md uppercase font-black">
               Featured_Projects
             </h2>
-            <span className="font-code-sm text-code-sm text-on-surface-variant">06 PRIMARY / 06 TOTAL</span>
+            <span className="font-code-sm text-code-sm text-on-surface-variant">
+              {showAllProjects ? "06 PRIMARY / 06 TOTAL" : "03 PRIMARY / 06 TOTAL"}
+            </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
-            {projects.map((project) => (
+            {projects.slice(0, showAllProjects ? 6 : 3).map((project) => (
               <div key={project.id} className="neo-brutalist-border bg-white hard-shadow-hover transition-all group flex flex-col">
                 <div className="h-48 bg-surface-container-highest border-b-2 border-on-surface relative overflow-hidden">
                   {project.image ? (
@@ -437,7 +442,7 @@ export default function Home() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] hover:bg-on-surface hover:text-white transition-colors flex items-center justify-center gap-xs btn-shift"
+                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] btn-github transition-colors flex items-center justify-center gap-xs btn-shift"
                         >
                           GITHUB <span className="material-symbols-outlined text-xs">open_in_new</span>
                         </a>
@@ -447,7 +452,7 @@ export default function Home() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] hover:bg-on-surface hover:text-white transition-colors flex items-center justify-center gap-xs btn-shift"
+                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] btn-live transition-colors flex items-center justify-center gap-xs btn-shift"
                         >
                           LIVE <span className="material-symbols-outlined text-xs">open_in_new</span>
                         </a>
@@ -460,9 +465,14 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center pt-md">
-            <button className="neo-brutalist-border px-lg py-md font-label-caps hover:bg-on-surface hover:text-white transition-colors hard-shadow-sm flex items-center gap-md btn-shift">
-              <span>VIEW_ALL_06_PROJECTS</span>
-              <span className="material-symbols-outlined">grid_view</span>
+            <button
+              onClick={() => setShowAllProjects(!showAllProjects)}
+              className="neo-brutalist-border px-lg py-md font-label-caps hover:bg-on-surface hover:text-white transition-colors hard-shadow-sm flex items-center gap-md btn-shift"
+            >
+              <span>{showAllProjects ? "SHOW_LESS_PROJECTS" : "VIEW_ALL_06_PROJECTS"}</span>
+              <span className="material-symbols-outlined">
+                {showAllProjects ? "unfold_less" : "grid_view"}
+              </span>
             </button>
           </div>
         </section>

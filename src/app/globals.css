@@ -444,3 +444,23 @@ a {
 .expanded {
   max-height: 500px;
 }
+
+/* Custom Button Branding Colors */
+.btn-github {
+  background-color: #24292e !important;
+  color: #ffffff !important;
+}
+
+.btn-github:hover {
+  background-color: #000000 !important;
+}
+
+.btn-live {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+.btn-live:hover {
+  background-color: #047857 !important;
+}
+
