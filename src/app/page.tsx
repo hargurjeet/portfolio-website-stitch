@@ -310,20 +310,20 @@ export default function Home() {
             </div>
 
             {/* Option A — Impact Metrics */}
-            <div className="flex flex-row border-t-2 border-on-surface pt-md z-10">
-              <div className="flex flex-col flex-1 min-w-0">
-                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">10+</span>
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Yrs DS Experience</span>
+            <div className="flex flex-row justify-around items-center border-t-2 border-on-surface pt-md z-10">
+              <div className="flex flex-col items-center text-center px-lg py-sm flex-1 min-w-0">
+                <span className="font-display-lg text-5xl md:text-6xl font-black text-primary leading-none">10+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-sm leading-tight">Yrs DS Experience</span>
               </div>
-              <div className="w-px bg-on-surface mx-md self-stretch opacity-30" />
-              <div className="flex flex-col flex-1 min-w-0">
-                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">100K+</span>
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Files Processed</span>
+              <div className="self-stretch w-0.5 bg-on-surface opacity-20" />
+              <div className="flex flex-col items-center text-center px-lg py-sm flex-1 min-w-0">
+                <span className="font-display-lg text-5xl md:text-6xl font-black text-primary leading-none">100K+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-sm leading-tight">Files Processed</span>
               </div>
-              <div className="w-px bg-on-surface mx-md self-stretch opacity-30" />
-              <div className="flex flex-col flex-1 min-w-0">
-                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">$50M+</span>
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Value Realised</span>
+              <div className="self-stretch w-0.5 bg-on-surface opacity-20" />
+              <div className="flex flex-col items-center text-center px-lg py-sm flex-1 min-w-0">
+                <span className="font-display-lg text-5xl md:text-6xl font-black text-primary leading-none">$50M+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-sm leading-tight">Value Realised</span>
               </div>
             </div>
 
