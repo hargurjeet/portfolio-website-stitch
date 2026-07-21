@@ -128,12 +128,56 @@ const projects: Project[] = [
   }
 ];
 
+interface Experience {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  bullets: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    role: "Senior Data Scientist",
+    company: "British Telecom (BT)",
+    location: "Bangalore, India",
+    period: "May 2022 – Present",
+    bullets: [
+      "Architected and led delivery of an enterprise-grade **conversational AI system (LLMs + RAG)**, reducing manual document extraction time by **70%** while processing **100K+ files** with **90%+ accuracy** via **AWS Bedrock** and **OpenSearch**.",
+      "Designed and deployed multi-step **agentic workflows** using **CrewAI** and **LangGraph**, integrating **JSON schema validation**, retry loops, and custom **hallucination guardrails** in production.",
+      "Developed an **LLM evaluation framework** using **Ragas** and **LLM-as-judge** pipelines to assess faithfulness, toxicity, bias, and hallucination detection.",
+      "Built an automated **email intelligence pipeline** processing **6,000+ weekly escalation emails**, fine-tuning a **LLaMA-2 7B** model locally via **QLoRA** for a **40% F1-score improvement**.",
+      "Engineered **recommendation systems** (**Random Forest + XGBoost**) and market basket analysis (**Apriori**) increasing **SD-WAN sales by 10%** and **Value-Added Services (VAS) sales by 30%**."
+    ]
+  },
+  {
+    role: "Data Scientist",
+    company: "Royal Dutch Shell",
+    location: "Bangalore, India",
+    period: "Sep 2016 – May 2022",
+    bullets: [
+      "Developed and evaluated **predictive maintenance models** (**XGBoost, Random Forest**) using **SHAP**-based interpretability and ROC-AUC scoring, cutting equipment maintenance costs by **30%** and unplanned downtime by **25%**.",
+      "Engineered end-to-end **data pipelines** in **Python (Pandas, NumPy)** and developed **Power BI** dashboards to forecast materials on-time delivery across 5 geographies, saving **10% budget**.",
+      "Acquired 5+ years of experience with **data warehousing**, **ETL pipelines**, **big data analytics**, and **relational databases**."
+    ]
+  },
+  {
+    role: "IT Analyst",
+    company: "Tata Consultancy Services (TCS)",
+    location: "India / UK",
+    period: "Dec 2010 – Aug 2016",
+    bullets: [
+      "Performed **System Integration Testing (SIT)** and **User Acceptance Testing (UAT)** to validate client **Point-of-Sale (PoS)** systems at enterprise scale.",
+      "Spent **one year in the UK onsite** guiding **offshore teams** through the implementation of new PoS software.",
+      "Acquired extensive experience working with **card and payment systems**, **PCI standards**, and **ISO 8583 protocols**."
+    ]
+  }
+];
+
+
 export default function Home() {
   // State for collapsible project cards
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({});
-
-  // State for collapsible experience block
-  const [expandedExperience, setExpandedExperience] = useState(false);
 
   // State for showing all 6 projects or only the first 3
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -484,72 +528,40 @@ export default function Home() {
               Experience_Log
             </h2>
             <div className="mt-md text-on-surface-variant font-code-sm">
-              TRANSITION FROM ACADEMIC RESEARCH TO <br />
-              PRODUCTION ARCHITECTURE.
+              TRANSITION FROM QUALITY ASSURANCE <br />
+              TO PRODUCTION AI SYSTEMS BUILDER.
             </div>
           </div>
           
           <div className="md:col-span-8 space-y-md">
-            
-            {/* British Telecom Card */}
-            <div className="neo-brutalist-border p-lg bg-white relative">
-              <div className="flex flex-col md:flex-row md:justify-between items-start mb-md">
-                <div>
-                  <h3 className="font-headline-md text-headline-md">Senior Data Scientist</h3>
-                  <span className="font-label-caps text-label-caps text-primary">British Telecom (BT)</span>
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="neo-brutalist-border p-lg bg-white relative">
+                <div className="flex flex-col md:flex-row md:justify-between items-start mb-md">
+                  <div>
+                    <h3 className="font-headline-md text-headline-md">{exp.role}</h3>
+                    <span className="font-label-caps text-label-caps text-primary">{exp.company}</span>
+                    <span className="text-xs text-on-surface-variant block font-code-sm mt-xs">{exp.location}</span>
+                  </div>
+                  <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1 mt-xs md:mt-0">{exp.period}</span>
                 </div>
-                <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1">2022 — PRESENT</span>
-              </div>
 
-              <ul className="list-disc ml-4 font-body-md text-body-md space-y-2 marker:text-primary-container">
-                <li>Architected enterprise-grade conversational AI (LLMs + RAG), reducing document extraction time by 70%.</li>
-                <li>Designed agentic workflows with CrewAI and LangGraph.</li>
-              </ul>
-
-              {/* Collapsible bullet list */}
-              <div className={`collapsible-content pt-4 border-t border-surface-variant mt-4 ${expandedExperience ? "expanded" : "collapsed"}`}>
-                <ul className="list-disc ml-4 font-body-md text-body-md space-y-2 marker:text-primary-container">
-                  <li>Integrated JSON schema validation and custom hallucination guardrails.</li>
-                  <li>Developed LLM evaluation framework using Ragas and LLM-as-judge pipelines.</li>
-                  <li>Built email intelligence pipeline for 6,000+ weekly escalations, fine-tuning LLaMA-2 7B.</li>
-                  <li>Engineered Recommendation Systems (Random Forest/XGBoost) increasing VAS sales by 30%.</li>
+                <ul className="list-disc ml-4 font-body-md text-body-md space-y-2 marker:text-primary-container leading-relaxed">
+                  {exp.bullets.map((bullet, bIdx) => {
+                    const parts = bullet.split(/(\*\*.*?\*\*)/);
+                    return (
+                      <li key={bIdx} className="text-justify">
+                        {parts.map((part, pIdx) => {
+                          if (part.startsWith("**") && part.endsWith("**")) {
+                            return <strong key={pIdx} className="font-semibold text-on-surface">{part.slice(2, -2)}</strong>;
+                          }
+                          return part;
+                        })}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
-
-              <button
-                onClick={() => setExpandedExperience(!expandedExperience)}
-                className="mt-4 text-primary font-label-caps text-xs flex items-center gap-1 hover:underline btn-shift"
-              >
-                {expandedExperience ? "SHOW_LESS" : "SHOW_MORE"}
-                <span
-                  className="material-symbols-outlined text-sm transition-transform"
-                  style={{ transform: expandedExperience ? "rotate(180deg)" : "rotate(0)" }}
-                >
-                  expand_more
-                </span>
-              </button>
-            </div>
-
-            {/* Royal Dutch Shell Card */}
-            <div className="neo-brutalist-border p-lg bg-white relative">
-              <div className="flex flex-col md:flex-row md:justify-between items-start mb-md">
-                <div>
-                  <h3 className="font-headline-md text-headline-md">Data Scientist</h3>
-                  <span className="font-label-caps text-label-caps text-primary">Royal Dutch Shell</span>
-                </div>
-                <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1">2016 — 2022</span>
-              </div>
-              <ul className="list-disc ml-4 font-body-md text-body-md space-y-2 marker:text-primary-container">
-                <li>Developed predictive maintenance models cutting costs by 30% and unplanned downtime by 25%.</li>
-                <li>Engineered data pipelines forecasting material delivery, saving 10% budget.</li>
-              </ul>
-            </div>
-
-            <div className="flex justify-center pt-sm">
-              <button className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 btn-shift">
-                <span className="material-symbols-outlined">history</span> VIEW_OLDER_HISTORY_ (TCS_2010-2016)
-              </button>
-            </div>
+            ))}
           </div>
         </section>
 
