@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import ChatWidget from "@/components/ChatWidget";
 
 interface Project {
   id: string;
@@ -745,6 +746,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <ChatWidget />
     </div>
   );
 }
