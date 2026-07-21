@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#251913"/>
+  <!-- Border accent -->
+  <rect x="0" y="0" width="32" height="2.5" fill="#f97316"/>
+  <!-- H -->
+  <rect x="4" y="7" width="2.5" height="18" fill="#fff8f6"/>
+  <rect x="4" y="14.75" width="9" height="2.5" fill="#fff8f6"/>
+  <rect x="10.5" y="7" width="2.5" height="18" fill="#fff8f6"/>
+  <!-- S -->
+  <path d="M16.5 7 h8.5 v2.5 h-6 v4.25 h5.5 v2.5 h-5.5 v4.25 h6 v2.5 h-8.5 v-6.75 h5.5 v-4.25 h-5.5 Z" fill="#f97316"/>
+</svg>

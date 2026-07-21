@@ -17,6 +17,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Hargurjeet Singh Ganger | Principal AI Architect",
   description: "Enterprise GenAI architectures, production RAG pipelines, and autonomous agent workflows.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
