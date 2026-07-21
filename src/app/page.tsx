@@ -5,20 +5,132 @@ import React, { useState } from "react";
 interface Project {
   id: string;
   title: string;
+  category: string;
   year: string;
-  image: string;
+  image?: string;
+  icon?: string;
   description: string;
+  bullets: string[];
+  outcome: string;
   tags: string[];
-  details: string[];
+  github?: string;
+  live?: string;
 }
+
+const projects: Project[] = [
+  {
+    id: "antigravity",
+    title: "Antigravity: Autonomous UI Designer",
+    category: "AI Agents",
+    year: "2024",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDz7UGgxLO-SzscKyVk4PJtd2OFFAy7UarNo9YVqTHoj84naXMm3pr0RMzbkp-pxji8Vh4hhIVv_DxfJDLK8VsjSMnIpU-JRbj9uMSO93MFR3LeQmWVklrlC-F8S_daHE1N_qxkCQ-31bWsbZJCFYy65HNOLq5CE92Y9BvXP2dXEafyRbVZa3o2GTej_vMRKQu3FH1JpUUQbMjCF-Do5DKDqMvcly7uXB76ZakuCY1xpoBqguKbnww3",
+    description: "Autonomous redraw cycles & context retention across agentic iterations using Gemini 2.5.",
+    bullets: [
+      "**Closed-Loop Critic**: Triggers autonomous redraw cycles by validating mockup images against guidelines.",
+      "**Evaluator Scoring**: Computes quantitative metrics for brand consistency, color alignment, and layout accuracy to score attempts.",
+      "**State & Memory**: Manages agent context and state retention across iterations using a central memory store to refine subsequent generation.",
+      "**Robust Guardrails**: Enforces strict boundaries via JSON schema validation, retry loops, and degrade-gracefully fallbacks.",
+      "**Streaming Timeline**: Traces and displays the agentic step-by-step cognitive thoughts and evaluations alongside intermediate drawing cycles.",
+      "**Google Agentic Systems**: Orchestrates multimodal Gemini 2.5 and Imagen 4 Ultra models to analyze briefs and generate images."
+    ],
+    outcome: "A state-of-the-art design workspace demonstrating expert command over multimodal image data through self-correcting agentic loops.",
+    tags: ["Gemini 2.5", "Imagen 4", "Google Agentic Systems", "Critique Loop", "Memory", "Next.js", "Tailwind"],
+    live: "https://antigravity-studio-blush.vercel.app/Antigravitystudio"
+  },
+  {
+    id: "organizer",
+    title: "Local Multi-Agent Folder Organizer",
+    category: "AI Agents",
+    year: "2024",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDbPOu3vJZrcLbj6V6RNno9V8BenMHlMr32YGylpV3ySo2yOfNlFCZ_YdLXi6NPOPy493rSDDXEcD1ijSO-OtcqRdGW96afmyvRDeoBNRQqYogScZnunuJt5IX30klxIdPO0zQVd3nGP8_ouf46gYp3y8jOdxicCpP5nr1LA2OWGEJ-nmWK4uPxsbNCIuLY77mwAqxS0k_jXoCizPWmrIvzO2y8-AByNazctphl_mD3eXWOATgrrqLI",
+    description: "A local-first system running fully on-device via Ollama that restructures cluttered downloads folders into semantic, context-aware nested subdirectories.",
+    bullets: [
+      "**Hierarchical Architecture**: Configures a lead orchestrator agent that partitions folder listings into subtask categories, preventing context window limits.",
+      "**Multi-Agent Concurrency**: Spawns category-specific specialist subagents in parallel using a Python ThreadPoolExecutor to slash local Ollama inference latency by 60%.",
+      "**Pydantic Output Validation**: Enforces strict JSON schemas on local SLMs using CrewAI's output parsing, guaranteeing zero formatting errors.",
+      "**Human-in-the-Loop Safe Gate**: Implements a CLI preview table and user confirmation prompt before mutating any folder structure, supporting a dry-run mode.",
+      "**Transactional Rollback Log**: Records all file migrations atomically in a central history.json transaction log, facilitating instant programmatic recovery."
+    ],
+    outcome: "A local-first system running fully on-device via Ollama that restructures cluttered downloads folders into semantic, context-aware nested subdirectories.",
+    tags: ["CrewAI", "Ollama", "Llama 3.2", "Pydantic", "Python", "Local LLMs", "Systems Automation"],
+    github: "https://github.com/hargurjeet/local_agent_organizer"
+  },
+  {
+    id: "benchmarking",
+    title: "Local AI Assistant & SLM Benchmarking",
+    category: "AI & Benchmarks",
+    year: "2024",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCagh6Kwhs_9vqs24p699vgrMx6LTo7_bWbe6t171BXtG6sHPllQihER6vLFYFcUv2Me2jkrGMYemR7OHWRbLas_vbzoxXBDspJ_ghICyWeJgyNnKfe51bnOeU3Hs4Ozv4XHGQCCvuzWM31DR6KfWFOO3WNM7UqJQDbGlfzfWL-mOUkiyxuvR68RkJn758578wgERkJCWMNEuN8nyeCzIXDKp6hVRlx4otyddX5vtJ6MSdg_BIRMz8P",
+    description: "Rigorous local benchmark of 30 multi-domain prompts published on Dev.to and GitHub. Proved Llama 3.2 (3B) is the most reliable for structured JSON.",
+    bullets: [
+      "**Local SLM evaluation**: Developed a FastAPI testing harness benchmarking Llama 3.2 (3B), Phi-3 Mini (3.8B), and Mistral (7B) fully on-device via Ollama.",
+      "**Inference speed profiling**: Measured performance where Phi-3 Mini led at 22.70 tokens/sec (323.99ms TTFT), and Llama 3.2 followed at 22.24 tokens/sec (427.29ms TTFT).",
+      "**Pydantic schema enforcement**: Structured LLM outputs using validation schemas. Llama 3.2 achieved 100% compliance via retry reprompts, and Mistral 7B achieved 90% compliance.",
+      "**Resource allocation tracking**: Measured memory-bound constraints on Apple Silicon Mac mini (16GB RAM) where CPU load remained low (13-15%) but memory hit 88.8% to 94.4%."
+    ],
+    outcome: "Rigorous local benchmark of 30 multi-domain prompts. Proved Llama 3.2 (3B) is the most reliable for structured JSON pipelines, while Phi-3 Mini excels in speed.",
+    tags: ["Ollama", "FastAPI", "Llama 3.2", "Mistral 7B", "Phi-3", "Pydantic", "Python", "Apple Silicon"],
+    github: "https://github.com/hargurjeet/local_slm_experiments"
+  },
+  {
+    id: "mcp",
+    title: "Generic Database MCP Server",
+    category: "MCP & Developer Tools",
+    year: "2024",
+    icon: "database",
+    description: "Pass any DuckDB file and get a full data-quality report + LLM-written root cause analysis in seconds — no config, no hardcoded schema.",
+    bullets: [
+      "**Zero hardcoding** — connects to any DuckDB file and auto-discovers every table and column at runtime.",
+      "**Type-aware quality checks**: numeric columns get distribution stats + Z-score; VARCHAR gets cardinality; TIMESTAMP gets gap detection.",
+      "**Ollama ReAct loop**: llama3.2 iteratively calls MCP tools, drills into anomalies, and writes a plain-English RCA report.",
+      "**FastAPI REST layer**: exposes drag-and-drop file upload, per-table quality checks, and RCA generation as HTTP endpoints.",
+      "**Next.js dashboard**: visualises schema, null rates, distribution cards, and cardinality in a 3-step upload flow."
+    ],
+    outcome: "Pass any DuckDB file and get a data-quality report + LLM-written root cause analysis in seconds — no config, no hardcoded schema.",
+    tags: ["FastMCP", "DuckDB", "Ollama", "llama3.2", "FastAPI", "Next.js", "Recharts", "Python"],
+    github: "https://github.com/hargurjeet/database-mcp"
+  },
+  {
+    id: "parser",
+    title: "AI-Powered Resume Parser",
+    category: "AI Applications",
+    year: "2024",
+    icon: "description",
+    description: "Structured output guaranteed at the schema level — retry logic and graceful failure handle the edge cases that plain prompting misses.",
+    bullets: [
+      "**PDF -> structured JSON pipeline**: pdfplumber extracts text -> Llama 3.3 70B parses via Fireworks AI.",
+      "**JSON schema enforcement**: instructor library constrains LLM output to an exact Pydantic v2 model.",
+      "**Retry mechanism**: catches invalid outputs, re-prompts the LLM once, then fails gracefully — no silent errors.",
+      "**Split-view UI**: original PDF alongside experience timeline, color-coded skill tags, and education cards.",
+      "**One-click JSON export**: drag-and-drop upload with animated progress steps, dark/light mode."
+    ],
+    outcome: "Live on Fly.io. Structured output guaranteed at the schema level — retry logic and graceful failure handle the edge cases that plain prompting misses.",
+    tags: ["FastAPI", "Next.js", "Llama 3.3 70B", "Fireworks AI", "pdfplumber", "Pydantic", "Fly.io"],
+    live: "https://hargurjeet-resume-ui.fly.dev"
+  },
+  {
+    id: "rag",
+    title: "Production-Grade RAG Evaluation Pipeline",
+    category: "RAG & LLMOps",
+    year: "2023",
+    icon: "analytics",
+    description: "Quality regressions caught at PR stage, not in production. Stack: LangChain/LangGraph, Chroma vector store, Cohere reranker — every retrieval step traceable.",
+    bullets: [
+      "**Hybrid retrieval**: BM25 sparse + contextual dense search — fed through a Cohere reranker.",
+      "**Citation enforcement**: grounds every answer in source documents; no hallucinated references.",
+      "**Prompts version-controlled**: every change is tracked and reproducible in a config file.",
+      "**Offline RAGAS script**: measures faithfulness, answer relevancy, and context precision.",
+      "**GitHub Actions gate**: runs eval on every PR; merge blocked if any metric drops below threshold."
+    ],
+    outcome: "Quality regressions caught at PR stage, not in production. Stack: LangChain/LangGraph, Chroma vector store, Cohere reranker — every retrieval step traceable, every prompt change auditable.",
+    tags: ["RAG", "RAGAS", "BM25", "LangChain", "LangGraph", "Cohere", "Chroma", "GitHub Actions", "Python"],
+    live: "https://huggingface.co/spaces/Hargurjeet/hybrid-rag-nextjs"
+  }
+];
 
 export default function Home() {
   // State for collapsible project cards
-  const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({
-    antigravity: false,
-    rag: false,
-    pulse: false,
-  });
+  const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({});
 
   // State for collapsible experience block
   const [expandedExperience, setExpandedExperience] = useState(false);
@@ -237,161 +349,116 @@ export default function Home() {
             <h2 className="font-display-lg text-display-lg-mobile md:text-headline-md uppercase font-black">
               Featured_Projects
             </h2>
-            <span className="font-code-sm text-code-sm text-on-surface-variant">03 PRIMARY / 06 TOTAL</span>
+            <span className="font-code-sm text-code-sm text-on-surface-variant">06 PRIMARY / 06 TOTAL</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
-            
-            {/* Project 1 */}
-            <div className="neo-brutalist-border bg-white hard-shadow-hover transition-all group flex flex-col">
-              <div className="h-48 bg-surface-container-highest border-b-2 border-on-surface relative overflow-hidden">
-                <div
-                  className="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
-                  style={{
-                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDz7UGgxLO-SzscKyVk4PJtd2OFFAy7UarNo9YVqTHoj84naXMm3pr0RMzbkp-pxji8Vh4hhIVv_DxfJDLK8VsjSMnIpU-JRbj9uMSO93MFR3LeQmWVklrlC-F8S_daHE1N_qxkCQ-31bWsbZJCFYy65HNOLq5CE92Y9BvXP2dXEafyRbVZa3o2GTej_vMRKQu3FH1JpUUQbMjCF-Do5DKDqMvcly7uXB76ZakuCY1xpoBqguKbnww3")`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                />
-                <div className="absolute top-sm right-sm bg-on-surface text-white px-2 py-1 font-code-sm text-xs">2024</div>
-              </div>
-              <div className="p-md flex-grow">
-                <h3 className="font-headline-md text-headline-md mb-xs">Antigravity</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-md">
-                  Autonomous redraw cycles &amp; context retention across agentic iterations using Gemini 2.5.
-                </p>
+            {projects.map((project) => (
+              <div key={project.id} className="neo-brutalist-border bg-white hard-shadow-hover transition-all group flex flex-col">
+                <div className="h-48 bg-surface-container-highest border-b-2 border-on-surface relative overflow-hidden">
+                  {project.image ? (
+                    <div
+                      className="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                      style={{
+                        backgroundImage: `url("${project.image}")`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover"
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-primary-container text-white">
+                      <span className="material-symbols-outlined text-[80px]">
+                        {project.icon}
+                      </span>
+                    </div>
+                  )}
+                  <div className="absolute top-sm right-sm bg-on-surface text-white px-2 py-1 font-code-sm text-xs">{project.year}</div>
+                </div>
+                
+                <div className="p-md flex-grow flex flex-col justify-between">
+                  <div>
+                    <span className="font-label-caps text-[10px] text-primary block mb-xs">{project.category}</span>
+                    <h3 className="font-headline-md text-headline-md mb-xs">{project.title}</h3>
+                    <p className="font-body-md text-body-md text-on-surface-variant mb-md">
+                      {project.description}
+                    </p>
 
-                {/* Collapsible Details */}
-                <div className={`collapsible-content space-y-2 mb-md text-sm border-t border-surface-variant pt-2 ${expandedProjects.antigravity ? "expanded" : "collapsed"}`}>
-                  <ul className="list-disc ml-4 font-body-md text-on-surface-variant">
-                    <li>Closed-loop critic for autonomous redraw cycles.</li>
-                    <li>Quantitative scoring for brand/color/layout.</li>
-                    <li>Multimodal Gemini 2.5 + Imagen 4 Ultra.</li>
-                  </ul>
+                    {/* Collapsible Details */}
+                    <div className={`collapsible-content space-y-2 mb-md text-sm border-t border-surface-variant pt-2 ${expandedProjects[project.id] ? "expanded" : "collapsed"}`}>
+                      <ul className="list-disc ml-4 font-body-md text-on-surface-variant">
+                        {project.bullets.map((bullet, idx) => {
+                          const parts = bullet.split(/(\*\*.*?\*\*)/);
+                          return (
+                            <li key={idx}>
+                              {parts.map((part, pIdx) => {
+                                if (part.startsWith("**") && part.endsWith("**")) {
+                                  return <strong key={pIdx} className="font-semibold text-on-surface">{part.slice(2, -2)}</strong>;
+                                }
+                                return part;
+                              })}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <div className="rounded-xl p-4 mt-md bg-surface-container border-l-4 border-l-primary leading-relaxed text-xs">
+                        <span className="font-bold text-on-surface">Outcome: </span>
+                        {project.outcome}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-xs mb-md mt-auto">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="bg-surface-variant px-2 py-1 text-xs font-code-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="flex flex-wrap gap-xs mb-md">
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">GEMINI_2.5</span>
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">AGENTIC_LOOPS</span>
-                </div>
-              </div>
-              <div className="p-md pt-0">
-                <button
-                  onClick={() => toggleProject("antigravity")}
-                  className="w-full neo-brutalist-border py-2 font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-colors flex items-center justify-center gap-xs"
-                >
-                  {expandedProjects.antigravity ? "HIDE_DETAILS" : "VIEW_DETAILS"}
-                  <span
-                    className="material-symbols-outlined transition-transform"
-                    style={{ transform: expandedProjects.antigravity ? "rotate(180deg)" : "rotate(0)" }}
+                <div className="p-md pt-0 mt-auto space-y-xs">
+                  <button
+                    onClick={() => toggleProject(project.id)}
+                    className="w-full neo-brutalist-border py-2 font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-colors flex items-center justify-center gap-xs"
                   >
-                    expand_more
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="neo-brutalist-border bg-white hard-shadow-hover transition-all group flex flex-col">
-              <div className="h-48 bg-surface-container-highest border-b-2 border-on-surface relative overflow-hidden">
-                <div
-                  className="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
-                  style={{
-                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbPOu3vJZrcLbj6V6RNno9V8BenMHlMr32YGylpV3ySo2yOfNlFCZ_YdLXi6NPOPy493rSDDXEcD1ijSO-OtcqRdGW96afmyvRDeoBNRQqYogScZnunuJt5IX30klxIdPO0zQVd3nGP8_ouf46gYp3y8jOdxicCpP5nr1LA2OWGEJ-nmWK4uPxsbNCIuLY77mwAqxS0k_jXoCizPWmrIvzO2y8-AByNazctphl_mD3eXWOATgrrqLI")`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                />
-                <div className="absolute top-sm right-sm bg-on-surface text-white px-2 py-1 font-code-sm text-xs">2023</div>
-              </div>
-              <div className="p-md flex-grow">
-                <h3 className="font-headline-md text-headline-md mb-xs">RAG Evaluation</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-md">
-                  Benchmark framework for testing retrieval precision in enterprise LLM implementations.
-                </p>
-
-                {/* Collapsible Details */}
-                <div className={`collapsible-content space-y-2 mb-md text-sm border-t border-surface-variant pt-2 ${expandedProjects.rag ? "expanded" : "collapsed"}`}>
-                  <ul className="list-disc ml-4 font-body-md text-on-surface-variant">
-                    <li>Hybrid retrieval (BM25 + Contextual Dense).</li>
-                    <li>Citation enforcement to prevent hallucinations.</li>
-                    <li>RAGAS metrics: faithfulness &amp; answer relevancy.</li>
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-xs mb-md">
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">LANGGRAPH</span>
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">RAGAS</span>
+                    {expandedProjects[project.id] ? "HIDE_DETAILS" : "VIEW_DETAILS"}
+                    <span
+                      className="material-symbols-outlined transition-transform"
+                      style={{ transform: expandedProjects[project.id] ? "rotate(180deg)" : "rotate(0)" }}
+                    >
+                      expand_more
+                    </span>
+                  </button>
+                  
+                  {(project.github || project.live) && (
+                    <div className="flex gap-xs">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] hover:bg-on-surface hover:text-white transition-colors flex items-center justify-center gap-xs btn-shift"
+                        >
+                          GITHUB <span className="material-symbols-outlined text-xs">open_in_new</span>
+                        </a>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 neo-brutalist-border py-1.5 text-center font-label-caps text-[10px] hover:bg-on-surface hover:text-white transition-colors flex items-center justify-center gap-xs btn-shift"
+                        >
+                          LIVE <span className="material-symbols-outlined text-xs">open_in_new</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="p-md pt-0">
-                <button
-                  onClick={() => toggleProject("rag")}
-                  className="w-full neo-brutalist-border py-2 font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-colors flex items-center justify-center gap-xs"
-                >
-                  {expandedProjects.rag ? "HIDE_DETAILS" : "VIEW_DETAILS"}
-                  <span
-                    className="material-symbols-outlined transition-transform"
-                    style={{ transform: expandedProjects.rag ? "rotate(180deg)" : "rotate(0)" }}
-                  >
-                    expand_more
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="neo-brutalist-border bg-white hard-shadow-hover transition-all group flex flex-col">
-              <div className="h-48 bg-surface-container-highest border-b-2 border-on-surface relative overflow-hidden">
-                <div
-                  className="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500"
-                  style={{
-                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCagh6Kwhs_9vqs24p699vgrMx6LTo7_bWbe6t171BXtG6sHPllQihER6vLFYFcUv2Me2jkrGMYemR7OHWRbLas_vbzoxXBDspJ_ghICyWeJgyNnKfe51bnOeU3Hs4Ozv4XHGQCCvuzWM31DR6KfWFOO3WNM7UqJQDbGlfzfWL-mOUkiyxuvR68RkJn758578wgERkJCWMNEuN8nyeCzIXDKp6hVRlx4otyddX5vtJ6MSdg_BIRMz8P")`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                />
-                <div className="absolute top-sm right-sm bg-on-surface text-white px-2 py-1 font-code-sm text-xs">2023</div>
-              </div>
-              <div className="p-md flex-grow">
-                <h3 className="font-headline-md text-headline-md mb-xs">Pulse Stream</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-md">
-                  Low-latency real-time stream processing for high-frequency trading data analysis.
-                </p>
-
-                {/* Collapsible Details */}
-                <div className={`collapsible-content space-y-2 mb-md text-sm border-t border-surface-variant pt-2 ${expandedProjects.pulse ? "expanded" : "collapsed"}`}>
-                  <ul className="list-disc ml-4 font-body-md text-on-surface-variant">
-                    <li>Sub-millisecond processing of financial telemetry.</li>
-                    <li>Integrated anomaly detection for market shifts.</li>
-                    <li>Visual dashboard for real-time waveform monitoring.</li>
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-xs mb-md">
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">FINTECH</span>
-                  <span className="bg-surface-variant px-2 py-1 text-xs font-code-sm">STREAMING</span>
-                </div>
-              </div>
-              <div className="p-md pt-0">
-                <button
-                  onClick={() => toggleProject("pulse")}
-                  className="w-full neo-brutalist-border py-2 font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-colors flex items-center justify-center gap-xs"
-                >
-                  {expandedProjects.pulse ? "HIDE_DETAILS" : "VIEW_DETAILS"}
-                  <span
-                    className="material-symbols-outlined transition-transform"
-                    style={{ transform: expandedProjects.pulse ? "rotate(180deg)" : "rotate(0)" }}
-                  >
-                    expand_more
-                  </span>
-                </button>
-              </div>
-            </div>
-
+            ))}
           </div>
 
-          {/* View All Projects Trigger */}
           <div className="flex justify-center pt-md">
             <button className="neo-brutalist-border px-lg py-md font-label-caps hover:bg-on-surface hover:text-white transition-colors hard-shadow-sm flex items-center gap-md btn-shift">
               <span>VIEW_ALL_06_PROJECTS</span>
