@@ -246,32 +246,88 @@ export default function Home() {
         {/* Hero Section */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-lg">
           {/* Bio Card */}
-          <div className="md:col-span-8 neo-brutalist-border p-lg flex flex-col justify-between bg-white hard-shadow relative overflow-hidden">
+          <div className="md:col-span-8 neo-brutalist-border p-lg flex flex-col gap-lg bg-white hard-shadow relative overflow-hidden">
             <div className="z-10">
-              <div className="inline-block bg-primary-container text-white font-code-sm text-code-sm px-2 py-1 mb-md">
-                [ PRINCIPAL_GENAI_ARCHITECT ]
+              {/* Option B — Availability Badge */}
+              <div className="flex flex-wrap items-center gap-md mb-md">
+                <div className="inline-block bg-primary-container text-white font-code-sm text-code-sm px-2 py-1">
+                  [ PRINCIPAL_GENAI_ARCHITECT ]
+                </div>
+                <div className="flex items-center gap-xs neo-brutalist-border px-sm py-1 bg-white">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="font-code-sm text-code-sm text-green-700 uppercase tracking-wider">Open to Senior AI/ML Roles</span>
+                </div>
               </div>
+
               <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">
                 Hargurjeet Singh Ganger. <br />
                 <span className="italic text-primary">Enterprise AI at Scale.</span>
               </h1>
-              <p className="font-body-lg text-body-lg max-w-2xl mb-lg">
+              <p className="font-body-lg text-body-lg max-w-2xl mb-md">
                 I bridge the gap between proof-of-concept AI models and resilient, production-grade Generative AI architectures. Specializing in enterprise RAG systems and autonomous agentic workflows.
               </p>
+
+              {/* Option B — CTA Buttons */}
+              <div className="flex flex-wrap gap-md mb-lg">
+                <a
+                  href="#projects"
+                  className="neo-brutalist-border bg-primary-container text-white px-md py-sm font-label-caps hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 transition-transform btn-shift inline-block"
+                >
+                  → VIEW PROJECTS
+                </a>
+                <a
+                  href="/resume.pdf"
+                  download="Hargurjeet_Singh_Resume.pdf"
+                  className="neo-brutalist-border bg-white text-on-surface px-md py-sm font-label-caps hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 transition-transform btn-shift inline-block"
+                >
+                  ↓ DOWNLOAD RESUME
+                </a>
+              </div>
             </div>
-            <div className="flex gap-md mt-auto">
+
+            {/* Option C — Animated Skill Tags Strip */}
+            <div className="overflow-hidden border-t-2 border-on-surface pt-md z-10">
+              <div className="flex gap-sm animate-scroll-x whitespace-nowrap">
+                {[
+                  "LLMs", "RAG", "LangGraph", "CrewAI", "AWS Bedrock", "MLOps",
+                  "Python", "OpenSearch", "Fine-tuning", "Vector DB", "LangChain",
+                  "Ragas", "Agents", "QLoRA", "FastAPI", "XGBoost", "Guardrails",
+                  "LLMs", "RAG", "LangGraph", "CrewAI", "AWS Bedrock", "MLOps",
+                  "Python", "OpenSearch", "Fine-tuning", "Vector DB", "LangChain",
+                  "Ragas", "Agents", "QLoRA", "FastAPI", "XGBoost", "Guardrails",
+                ].map((skill, i) => (
+                  <span
+                    key={i}
+                    className="neo-brutalist-border bg-surface-container-low px-sm py-xs font-code-sm text-code-sm shrink-0"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Option A — Impact Metrics */}
+            <div className="grid grid-cols-3 gap-md border-t-2 border-on-surface pt-md z-10">
               <div className="flex flex-col">
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">Expertise</span>
-                <span className="font-code-sm text-code-sm">RAG • AGENTS • MLOPS</span>
+                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">10+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Years Data Science Experience</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">Location</span>
-                <span className="font-code-sm text-code-sm">BANGALORE, IN</span>
+                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">100K+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Files / Docs Processed</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display-lg text-3xl md:text-4xl font-black text-primary leading-none">$50M+</span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs leading-tight">Value Realised</span>
               </div>
             </div>
+
             {/* Background Pattern */}
-            <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-              <span className="material-symbols-outlined text-[160px]" style={{ fontVariationSettings: '"wght" 200' }}>
+            <div className="absolute right-0 top-0 opacity-5 pointer-events-none">
+              <span className="material-symbols-outlined text-[220px]" style={{ fontVariationSettings: '"wght" 200' }}>
                 memory
               </span>
             </div>

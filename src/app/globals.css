@@ -464,3 +464,17 @@ a {
   background-color: #047857 !important;
 }
 
+/* ── Skill Tags Scroll Animation ── */
+@keyframes scroll-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-x:hover {
+  animation-play-state: paused;
+}
