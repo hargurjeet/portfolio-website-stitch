@@ -131,6 +131,7 @@ const projects: Project[] = [
 interface Experience {
   role: string;
   company: string;
+  companyUrl: string;
   location: string;
   period: string;
   bullets: string[];
@@ -139,7 +140,8 @@ interface Experience {
 const experiences: Experience[] = [
   {
     role: "Senior Data Scientist",
-    company: "British Telecom (BT)",
+    company: "BT Group",
+    companyUrl: "https://www.bt.com/",
     location: "Bangalore, India",
     period: "May 2022 – Present",
     bullets: [
@@ -153,6 +155,7 @@ const experiences: Experience[] = [
   {
     role: "Data Scientist",
     company: "Royal Dutch Shell",
+    companyUrl: "https://www.shell.com/",
     location: "Bangalore, India",
     period: "Sep 2016 – May 2022",
     bullets: [
@@ -164,6 +167,7 @@ const experiences: Experience[] = [
   {
     role: "IT Analyst",
     company: "Tata Consultancy Services (TCS)",
+    companyUrl: "https://www.tcs.com/",
     location: "India / UK",
     period: "Dec 2010 – Aug 2016",
     bullets: [
@@ -181,6 +185,9 @@ export default function Home() {
 
   // State for showing all 6 projects or only the first 3
   const [showAllProjects, setShowAllProjects] = useState(false);
+
+  // State for showing all experience entries (default: BT only)
+  const [showAllExperience, setShowAllExperience] = useState(false);
 
   const toggleProject = (id: string) => {
     setExpandedProjects((prev) => ({
@@ -531,12 +538,19 @@ export default function Home() {
           </div>
           
           <div className="md:col-span-8 space-y-md">
-            {experiences.map((exp, idx) => (
+            {(showAllExperience ? experiences : experiences.slice(0, 1)).map((exp, idx) => (
               <div key={idx} className="neo-brutalist-border p-lg bg-white relative">
                 <div className="flex flex-col md:flex-row md:justify-between items-start mb-md">
                   <div>
                     <h3 className="font-headline-md text-headline-md">{exp.role}</h3>
-                    <span className="font-label-caps text-label-caps text-primary">{exp.company}</span>
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-label-caps text-label-caps text-primary hover:underline"
+                    >
+                      {exp.company}
+                    </a>
                     <span className="text-xs text-on-surface-variant block font-code-sm mt-xs">{exp.location}</span>
                   </div>
                   <span className="font-code-sm text-code-sm bg-on-surface text-white px-2 py-1 mt-xs md:mt-0">{exp.period}</span>
@@ -559,6 +573,16 @@ export default function Home() {
                 </ul>
               </div>
             ))}
+
+            {/* Show / Hide experience toggle */}
+            <div className="flex justify-center pt-md">
+              <button
+                onClick={() => setShowAllExperience((prev) => !prev)}
+                className="neo-brutalist-border bg-white text-on-surface px-lg py-sm font-label-caps hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 transition-transform btn-shift uppercase tracking-wider"
+              >
+                {showAllExperience ? "▲ Hide Full Experience" : "▼ Show Complete Experience"}
+              </button>
+            </div>
           </div>
         </section>
 
