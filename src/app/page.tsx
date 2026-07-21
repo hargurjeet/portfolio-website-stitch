@@ -77,7 +77,7 @@ const projects: Project[] = [
     title: "Generic Database MCP Server",
     category: "MCP & Developer Tools",
     year: "2024",
-    image: "/images/project_db_mcp.png",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
     description: "Pass any DuckDB file and get a full data-quality report + LLM-written root cause analysis in seconds — no config, no hardcoded schema.",
     bullets: [
       "**Zero hardcoding** — connects to any DuckDB file and auto-discovers every table and column at runtime.",
@@ -95,7 +95,7 @@ const projects: Project[] = [
     title: "AI-Powered Resume Parser",
     category: "AI Applications",
     year: "2024",
-    image: "/images/project_resume_parser.png",
+    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=600&q=80",
     description: "Structured output guaranteed at the schema level — retry logic and graceful failure handle the edge cases that plain prompting misses.",
     bullets: [
       "**PDF -> structured JSON pipeline**: pdfplumber extracts text -> Llama 3.3 70B parses via Fireworks AI.",
@@ -113,7 +113,7 @@ const projects: Project[] = [
     title: "Production-Grade RAG Evaluation Pipeline",
     category: "RAG & LLMOps",
     year: "2023",
-    image: "/images/project_rag_eval.png",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80",
     description: "Quality regressions caught at PR stage, not in production. Stack: LangChain/LangGraph, Chroma vector store, Cohere reranker — every retrieval step traceable.",
     bullets: [
       "**Hybrid retrieval**: BM25 sparse + contextual dense search — fed through a Cohere reranker.",
