@@ -733,7 +733,9 @@ export default function Home() {
             </a>
             <a
               className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-200 uppercase"
-              href="mailto:gurjeet333@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=gurjeet333@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Email
             </a>
