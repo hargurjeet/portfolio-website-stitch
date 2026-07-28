@@ -341,7 +341,7 @@ export default function Home() {
             <img
               alt="Hargurjeet Singh Portrait"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLsyhwdIq10gOGKyCywgcZKSmAA7h2quJnQwVeELOXEqdAqTTZu_La7AmT0u1uFpu6qHRZfaXRSGerbtBTsaSII_bX-Kxog-eIeDhAfGbbMD6_8pPNOcg0zW0i58bwa36-ImxMs_crkUL1T3cAUXCtSgIN7QaYlVf2Rvi5IFPrPUIa7IEGdtdtD4qEQxIpU4P4sqKtsvaOE7HJNH7JMMmGfiOmThjFThSINB5_d0Vj-AMAa3CDM6AYuWmlQ"
+              src="/images/portrait.png"
             />
           </div>
 
@@ -746,7 +746,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </div>
   );
 }
