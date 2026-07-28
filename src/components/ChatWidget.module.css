@@ -326,3 +326,94 @@
     transform: scale(1);
   }
 }
+
+/* Voice Call UI Styles */
+.voiceControlPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-top: 2px solid #251913;
+  background: #fff1eb;
+  flex-shrink: 0;
+}
+
+.voiceStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulseIndicator {
+  position: relative;
+  display: flex;
+  height: 8px;
+  width: 8px;
+}
+
+.pulsePing {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: #f97316;
+  opacity: 0.75;
+}
+
+.pulseDot {
+  position: relative;
+  display: inline-flex;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  background: #f97316;
+}
+
+.voiceStatusText {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 700;
+  font-size: 11px;
+  color: #251913;
+  letter-spacing: 0.05em;
+}
+
+.voiceActions {
+  display: flex;
+  gap: 8px;
+}
+
+.voiceButton {
+  padding: 6px 10px;
+  border: 2px solid #251913;
+  box-shadow: 2px 2px 0 #251913;
+  background: #ffffff;
+  color: #251913;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+}
+
+.voiceButton:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #251913;
+}
+
+.muted {
+  background: #fee2e2;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.endCall {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.voiceActive {
+  color: #f97316 !important;
+}
+
