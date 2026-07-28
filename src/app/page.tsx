@@ -226,6 +226,12 @@ export default function Home() {
             </a>
             <a
               className="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-150 py-1"
+              href="/blog"
+            >
+              Articles
+            </a>
+            <a
+              className="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-150 py-1"
               href="#contact"
             >
               Contact
