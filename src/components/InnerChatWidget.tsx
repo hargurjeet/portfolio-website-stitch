@@ -101,7 +101,7 @@ function InnerChatWidgetContent({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       {/* ── CHAT PANEL ── */}
       {isOpen && (
         <div className={styles.chatWindow}>
@@ -289,6 +289,21 @@ export default function InnerChatWidget() {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      if (isOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "";
+      }
+    };
   }, [isOpen]);
 
   function selectQuestion(q: string) {

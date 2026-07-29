@@ -417,3 +417,55 @@
   color: #f97316 !important;
 }
 
+@media (max-width: 768px) {
+  .container {
+    bottom: 16px;
+    right: 16px;
+    width: auto;
+  }
+
+  .container.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    z-index: 99999;
+  }
+
+  .container.open .chatWindow {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    box-shadow: none;
+    overscroll-behavior: contain;
+  }
+
+  .messagesContainer {
+    overscroll-behavior: contain;
+  }
+
+  .toggleButtonOpen {
+    display: none !important;
+  }
+
+  .header {
+    height: 52px;
+    padding: 4px 16px;
+  }
+
+  .headerButton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .inputField {
+    font-size: 16px;
+  }
+}
+
+
